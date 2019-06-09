@@ -7,15 +7,16 @@
 
 ```sh
 │  README.md
-├─cl-sandbox
-   ├─supersocket famework
-   │ 
-   ├─DLL_Common (공통 사용 dll)
-   │
-   ├─DLL_SvrCommon (서버 공통 사용 dll)
-   │ 
-   ├─appAuthServer (인증 서버)
-   │ 
-   └─appLobbyServer (로비 서버)
+├─fm-dlls
+│  ├─fmCommon
+│  ├─fmLibrary
+│  ├─fmServerCommon
+│  └─fmThirdparty
+│
+├─fm-sandbox
+   ├─appAuthServer (인증서버)
+   ├─appCenterServer (센터서버)
+   ├─appChatServer (채팅서버)
+   └─aappGameServer (게임서)
 
 ```
