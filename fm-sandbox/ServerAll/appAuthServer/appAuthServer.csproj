@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{529CA7B7-4DE3-4226-8462-AE353088B1B4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>appAuthServer</RootNamespace>
+    <AssemblyName>appAuthServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\fm-dlls\fmThirdparty\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>..\..\..\fm-dlls\fmThirdparty\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Message\Msg_CA_Broadcast_GetNotice_RQ.cs" />
+    <Compile Include="Message\Msg_CA_Login_RQ.cs" />
+    <Compile Include="Message\Msg_OA_Broadcast_SetNotice_RQ.cs" />
+    <Compile Include="Message\Msg_Session_Add.cs" />
+    <Compile Include="Message\Msg_Svr_GetWorldList_NT.cs" />
+    <Compile Include="Message\Msg_Svr_GetWorldList_RS.cs" />
+    <Compile Include="Message\Msg_Svr_ReadyToStart_RS.cs" />
+    <Compile Include="Message\Msg_Svr_RegisterAtCenter_RS.cs" />
+    <Compile Include="Message\MessageDispatcher.cs" />
+    <Compile Include="Query\urq_UpdateAuthToken.cs" />
+    <Compile Include="Query\usp_Login.cs" />
+    <Compile Include="Query\usp_Test.cs" />
+    <Compile Include="Server\AuthServer.cs" />
+    <Compile Include="Server\AuthServer_Attacher.cs" />
+    <Compile Include="Server\AuthServer_Handle.cs" />
+    <Compile Include="Server\AuthServer_Load.cs" />
+    <Compile Include="Server\AuthServer_Thread.cs" />
+    <Compile Include="Server\SyncMainRoute.cs" />
+    <Compile Include="Session\ClientSessionManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\SessionContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="config_Auth.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\fm-dlls\fmCommon\fmCommon.csproj">
+      <Project>{3c2db9cd-6312-4f18-af5d-a185e27edee0}</Project>
+      <Name>fmCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\fm-dlls\fmLibrary\fmLibrary.csproj">
+      <Project>{c77ccc92-9a93-450f-97e3-531ca53e8e47}</Project>
+      <Name>fmLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\fm-dlls\fmServerCommon\fmServerCommon.csproj">
+      <Project>{b45b4314-e71b-47ee-a235-072ca0d28696}</Project>
+      <Name>fmServerCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)*.ini $(TargetDir) /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

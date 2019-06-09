@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94267FBC-0722-4FD4-B929-049BE14AE1DF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>appGameServer</RootNamespace>
+    <AssemblyName>appGameServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\fm-dlls\fmThirdparty\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>..\..\..\fm-dlls\fmThirdparty\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lord\Base\LordExplore.cs" />
+    <Compile Include="Lord\Base\LordDungeon.cs" />
+    <Compile Include="Lord\Base\LordMission.cs" />
+    <Compile Include="Lord\Lord_Shop.cs" />
+    <Compile Include="Maze\MazeManager.cs" />
+    <Compile Include="Lord\Base\LordBase.cs" />
+    <Compile Include="Lord\Base\ItemInventory.cs" />
+    <Compile Include="Lord\Base\LordStat.cs" />
+    <Compile Include="Lord\Lord_Dispose.cs" />
+    <Compile Include="Lord\LordManager.cs" />
+    <Compile Include="Lord\Lord_Base.cs" />
+    <Compile Include="Lord\Lord_Item.cs" />
+    <Compile Include="Lord\Lord_Logout.cs" />
+    <Compile Include="Lord\Base\UnitInventory.cs" />
+    <Compile Include="Lord\Lord_Stat.cs" />
+    <Compile Include="Message\MessageDispatcher.cs" />
+    <Compile Include="Message\Log\Msg_Log_Act.cs" />
+    <Compile Include="Message\Log\Msg_Log_RQ.cs" />
+    <Compile Include="Message\Msg_Session_Add.cs" />
+    <Compile Include="Message\Msg_Svr_Delegate_ProcSleeper.cs" />
+    <Compile Include="Message\Log\Msg_Log_IAB.cs" />
+    <Compile Include="Message\Log\Msg_Log_Ruby.cs" />
+    <Compile Include="Message\Msg_Rank_GetList_RQ.cs" />
+    <Compile Include="Message\Msg_Lord_EnterWorld_RQ.cs" />
+    <Compile Include="Message\Msg_Item_Equip_RQ.cs" />
+    <Compile Include="Message\Msg_Item_GetList_RQ.cs" />
+    <Compile Include="Message\Msg_Lord_CreateLord_RQ.cs" />
+    <Compile Include="Message\Msg_Lord_GetLord_RQ.cs" />
+    <Compile Include="Message\Msg_Shop_GetList_RQ.cs" />
+    <Compile Include="Message\Msg_Svr_ReadyToStart_RS.cs" />
+    <Compile Include="Message\Msg_Svr_RegisterAtCenter_RS.cs" />
+    <Compile Include="Message\Msg_Svr_RegisterAtChat_RS.cs" />
+    <Compile Include="Query\urq_ClearInDun.cs" />
+    <Compile Include="Query\urq_EnchantItem.cs" />
+    <Compile Include="Query\urq_IABPuchase.cs" />
+    <Compile Include="Query\urq_RefreshInDun.cs" />
+    <Compile Include="Query\urq_SetEnchantItem.cs" />
+    <Compile Include="Query\urq_SetStat.cs" />
+    <Compile Include="Query\urq_ClearDragonTomb.cs" />
+    <Compile Include="Query\urq_ClearExplore.cs" />
+    <Compile Include="Query\urq_BuyGood.cs" />
+    <Compile Include="Query\urq_ClearMaze.cs" />
+    <Compile Include="Query\urq_GetRank.cs" />
+    <Compile Include="Query\urq_SetLordBase.cs" />
+    <Compile Include="Query\urq_SetRank.cs" />
+    <Compile Include="Query\urq_CompleteMission.cs" />
+    <Compile Include="Query\urq_ResetItem.cs" />
+    <Compile Include="Query\urq_EquipItem.cs" />
+    <Compile Include="Query\urq_GetLord.cs" />
+    <Compile Include="Query\urq_GetMissions.cs" />
+    <Compile Include="Query\urq_GetOtherLord.cs" />
+    <Compile Include="Query\urq_GetToken.cs" />
+    <Compile Include="Query\urq_CreateLord.cs" />
+    <Compile Include="Query\urq_SellItem.cs" />
+    <Compile Include="Query\urq_SetRubyLog.cs" />
+    <Compile Include="Query\urq_SetMissions.cs" />
+    <Compile Include="Query\urq_UseForge.cs" />
+    <Compile Include="Table\Formula\fmFormulaOption.cs" />
+    <Compile Include="Table\Formula\theFormula.cs" />
+    <Compile Include="Table\Gocha\fmGochaBoard.cs" />
+    <Compile Include="Table\Gocha\fmGochaDHeartDragon.cs" />
+    <Compile Include="Table\Gocha\fmGochaDHeartMonster.cs" />
+    <Compile Include="Table\Gocha\fmGochaDrop.cs" />
+    <Compile Include="Table\Gocha\fmGochaExploreMonster.cs" />
+    <Compile Include="Table\Gocha\fmGochaGoblin.cs" />
+    <Compile Include="Table\Gocha\fmGochaInDunMonster.cs" />
+    <Compile Include="Table\Gocha\fmGochaItem.cs" />
+    <Compile Include="Table\Gocha\fmGochaMap.cs" />
+    <Compile Include="Table\Gocha\fmGochaMazeMonster.cs" />
+    <Compile Include="Table\Gocha\fmGochaMeet.cs" />
+    <Compile Include="Table\Gocha\fmGochaRerollAddOpt.cs" />
+    <Compile Include="Table\Gocha\fmGochaTombMonster.cs" />
+    <Compile Include="Table\Option\List\fmOptListDrop.cs" />
+    <Compile Include="Table\Option\List\fmOptListEnchAnci.cs" />
+    <Compile Include="Table\Option\List\fmOptListEnchNorm.cs" />
+    <Compile Include="Table\Option\List\fmOptListMythic.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Mythic.cs" />
+    <Compile Include="Table\theDiscoverer.cs" />
+    <Compile Include="Table\ItemPicker\theItemPicker.cs" />
+    <Compile Include="Table\theFmDataFinder.cs" />
+    <Compile Include="Table\theGameConst.cs" />
+    <Compile Include="Table\theInDunChecker.cs" />
+    <Compile Include="Table\theLordCreater.cs" />
+    <Compile Include="Server\GameServer_Thread.cs" />
+    <Compile Include="Server\GameServer_Load.cs" />
+    <Compile Include="Session\ClientSession.cs" />
+    <Compile Include="Session\ClientSessionContainer.cs" />
+    <Compile Include="Session\ClientSessionHandler.cs" />
+    <Compile Include="Session\ClientSessionManager.cs" />
+    <Compile Include="Server\GameServer.cs" />
+    <Compile Include="Server\GameServer_Attahcer.cs" />
+    <Compile Include="Server\GameServer_Handle.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table\theMapChecker.cs" />
+    <Compile Include="Table\theMissionPicker.cs" />
+    <Compile Include="Table\theMonsterPicker.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Ancient.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Combine.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Remelt.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Base.cs" />
+    <Compile Include="Table\Option\theOptionPicker_Drop.cs" />
+    <Compile Include="Table\theSetEffecter.cs" />
+    <Compile Include="Table\theShop.cs" />
+    <Compile Include="Thread\ArchiveExecuter.cs" />
+    <Compile Include="Thread\AsyncLordCreater.cs" />
+    <Compile Include="Thread\BattleExecuter.cs" />
+    <Compile Include="Thread\SyncMessageExcuter.cs" />
+    <Compile Include="Thread\SyncMainRoute.cs" />
+    <Compile Include="Thread\ThreadSeparator.cs" />
+    <Compile Include="Message\Message_ThreadSeparator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="a_config_Game.ini" />
+    <None Include="config_Game.ini">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\fm-dlls\fmCommon\fmCommon.csproj">
+      <Project>{3c2db9cd-6312-4f18-af5d-a185e27edee0}</Project>
+      <Name>fmCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\fm-dlls\fmLibrary\fmLibrary.csproj">
+      <Project>{c77ccc92-9a93-450f-97e3-531ca53e8e47}</Project>
+      <Name>fmLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\fm-dlls\fmServerCommon\fmServerCommon.csproj">
+      <Project>{b45b4314-e71b-47ee-a235-072ca0d28696}</Project>
+      <Name>fmServerCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)*.ini $(TargetDir) /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
