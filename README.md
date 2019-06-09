@@ -8,15 +8,15 @@
 ```sh
 │  README.md
 ├─fm-dlls
-│  ├─fmCommon
-│  ├─fmLibrary
-│  ├─fmServerCommon
+│  ├─fmCommon (클라,서버 공통 dll)
+│  ├─fmLibrary (네트워크 라이브러리)
+│  ├─fmServerCommon (서버 공통 dll)
 │  └─fmThirdparty
 │
 ├─fm-sandbox
    ├─appAuthServer (인증서버)
    ├─appCenterServer (센터서버)
    ├─appChatServer (채팅서버)
-   └─aappGameServer (게임서)
+   └─aappGameServer (게임서버)
 
 ```
